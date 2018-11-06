@@ -4,9 +4,9 @@
 #define VELOCITY_30C 3495 /* 30摄氏度时的声速，声速“V = 331.5 + 0.6 * 温度” */
 #define VELOCITY_23C 3453 /* 23摄氏度时的声速，声速“V = 331.5 + 0.6 * 温度” */
 
-sbit INPUT  = P3 ^ 2;  /* 回声接收端口 */
-sbit OUTPUT = P1 ^ 5;  /* 超声触发端口 */
-sbit Beep   = P2 ^ 3;  /* 蜂鸣器 */
+sbit INPUT  = P3 ^ 2; /* 回声接收端口 */
+sbit OUTPUT = P1 ^ 5; /* 超声触发端口 */
+sbit Beep   = P2 ^ 3; /* 蜂鸣器 */
 
 long int distance = 0; /* 距离变量 */
 uchar count = 0;
