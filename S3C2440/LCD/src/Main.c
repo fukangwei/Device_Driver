@@ -33,7 +33,7 @@ void TFT_LCD_Test ( void );
 #define SCR_XSIZE  LCD_WIDTH
 #define SCR_YSIZE  LCD_HEIGHT
 
-volatile static unsigned short LCD_BUFFER[SCR_YSIZE][SCR_XSIZE]; /*定义320行，240列的数组，用于存放显示数据*/
+volatile static unsigned short LCD_BUFFER[SCR_YSIZE][SCR_XSIZE]; /* 定义320行，240列的数组，用于存放显示数据 */
 
 extern unsigned char sunflower_240x320[];
 
