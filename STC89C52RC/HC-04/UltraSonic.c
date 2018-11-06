@@ -112,7 +112,7 @@ void main ( void ) {
         display_char ( table3, 0x40 );
         display ( distance, 0x49 ); /* 显示距离 */
         Init_Parameter(); /* 参数重新初始化 */
-        delayt ( 100 ); /* 延时，两次发射之间要至少有10ms间隔 */
+        delayt ( 100 ); /* 延时，两次发射之间至少要有10ms间隔 */
     }
 }
 
