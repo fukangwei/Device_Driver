@@ -54,7 +54,7 @@ void Set_Clk ( void ) { /* 系统时钟设置函数 */
     int i;
     U8 key;
     U32 mpll_val = 0 ;
-    i = 2 ; /* don't use 100M! */
+    i = 2; /* don't use 100M! */
 
     switch ( i ) {
         case 0: /* 200 */
