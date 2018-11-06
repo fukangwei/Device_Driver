@@ -230,7 +230,7 @@ uint8 SPI_Read_Buf ( uint8 reg, uint8 *pBuf, uint8 uchars ) {
     return ( status ); /* return nRF24L01 status */
 }
 
-/* 用于写数据，reg为寄存器地址，pBuf为待写入数据地址，uchars写入数据的个数 */
+/* 用于写数据，reg为寄存器地址，pBuf为待写入数据地址，uchars为写入数据的个数 */
 uint8 SPI_Write_Buf ( uint8 reg, uint8 *pBuf, uint8 uchars ) {
     uint8 status, uint8_ctr;
     CSN_L;
