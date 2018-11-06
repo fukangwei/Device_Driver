@@ -3,13 +3,10 @@
 uint8 set_ds1302_time[7] = {0, 0, 0, 0, 0, 0, 0}; /* 设置DS1302的初始时间，格式为“秒分时日月周年” */
 uint8 read_ds1302_time[7] = {0, 0, 0, 0, 0, 0, 0}; /* 读取DS1302中的运行时间，格式为“秒分时日月周年” */
 
-/* 向DS1302写一个字节 */
-void write_ds1302_byte ( uint8 dat )
-{
+void write_ds1302_byte ( uint8 dat ) { /* 向DS1302写一个字节 */
     uint8 i;
 
-    for ( i = 0; i < 8; i++ )
-    {
+    for ( i = 0; i < 8; i++ ) {
         SDA = dat & 0x01;
         SCK = 1;
         dat >>= 1;
@@ -17,17 +14,13 @@ void write_ds1302_byte ( uint8 dat )
     }
 }
 
-/* 从DS1302读一个字节 */
-uint8 read_ds1302_byte ( void )
-{
+uint8 read_ds1302_byte ( void ) { /* 从DS1302读一个字节 */
     uint8 i, dat = 0;
 
-    for ( i = 0; i < 8; i++ )
-    {
+    for ( i = 0; i < 8; i++ ) {
         dat >>= 1;
 
-        if ( SDA )
-        {
+        if ( SDA ) {
             dat |= 0x80;
         }
 
@@ -38,17 +31,13 @@ uint8 read_ds1302_byte ( void )
     return dat;
 }
 
-/* 对DS1302设备进行重启 */
-void reset_ds1302 ( void )
-{
+void reset_ds1302 ( void ) { /* 对DS1302设备进行重启 */
     RST = 0;
     SCK = 0;
     RST = 1;
 }
 
-/* DS1302清除写保护 */
-void clear_ds1302_WP ( void )
-{
+void clear_ds1302_WP ( void ) { /* DS1302清除写保护 */
     reset_ds1302();
     RST = 1;
     write_ds1302_byte ( 0x8E );
@@ -57,9 +46,7 @@ void clear_ds1302_WP ( void )
     RST = 0;
 }
 
-/* 对DS1302设置写保护 */
-void set_ds1302_WP ( void )
-{
+void set_ds1302_WP ( void ) { /* 对DS1302设置写保护 */
     reset_ds1302();
     RST = 1;
     write_ds1302_byte ( 0x8E );
@@ -68,9 +55,7 @@ void set_ds1302_WP ( void )
     RST = 0;
 }
 
-/* 将数据写入DS1302 */
-void write_ds1302 ( uint8 addr, uint8 dat )
-{
+void write_ds1302 ( uint8 addr, uint8 dat ) { /* 将数据写入DS1302 */
     reset_ds1302();
     RST = 1;
     write_ds1302_byte ( addr );
@@ -79,9 +64,7 @@ void write_ds1302 ( uint8 addr, uint8 dat )
     RST = 0;
 }
 
-/* 从地址中读出DS1302数据 */
-uint8 read_ds1302 ( uint8 addr )
-{
+uint8 read_ds1302 ( uint8 addr ) { /* 从地址中读出DS1302数据 */
     uint8 temp = 0;
     reset_ds1302();
     RST = 1;
@@ -92,23 +75,19 @@ uint8 read_ds1302 ( uint8 addr )
     return ( temp );
 }
 
-/* 对DS1302设定时钟数据 */
-void set_time ( uint8 *timedata )
-{
+void set_time ( uint8 *timedata ) { /* 对DS1302设定时钟数据 */
     uint8 i, tmp;
 
-    for ( i = 0; i < 7; i++ ) //转化为BCD格式
-    {
+    for ( i = 0; i < 7; i++ ) { /* 转化为BCD格式 */
         tmp = timedata[i] / 10;
         timedata[i] = timedata[i] % 10;
         timedata[i] = timedata[i] + tmp * 16;
     }
 
     clear_ds1302_WP();
-    tmp = DS1302_W_ADDR; //传写地址
+    tmp = DS1302_W_ADDR;
 
-    for ( i = 0; i < 7; i++ ) //分7次写入，分别是“秒分时日月周年”
-    {
+    for ( i = 0; i < 7; i++ ) { /* 分7次写入，分别是“秒分时日月周年” */
         write_ds1302 ( tmp, timedata[i] );
         tmp += 2;
     }
@@ -116,14 +95,11 @@ void set_time ( uint8 *timedata )
     set_ds1302_WP();
 }
 
-/* 读时钟数据（BCD格式） */
-void read_time ( uint8 *timedata )
-{
+void read_time ( uint8 *timedata ) { /* 读时钟数据(BCD格式) */
     uint8 i, tmp;
     tmp = DS1302_R_ADDR;
 
-    for ( i = 0; i < 7; i++ ) //分7次读取，格式是“秒分时日月周年”
-    {
+    for ( i = 0; i < 7; i++ ) { /* 分7次读取，格式是“秒分时日月周年” */
         timedata[i] = read_ds1302 ( tmp );
         tmp += 2;
     }
