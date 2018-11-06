@@ -80,7 +80,7 @@ static void write_byte ( unsigned char data ) {
     s3c2410_gpio_pullup ( DQ, 1 );
 
     for ( i = 0; i < 8; i++ ) {
-        /* 总线从高拉至低电平时，就产生写时隙 */
+        /* 总线从高拉至低电平时，就产生写时序 */
         s3c2410_gpio_setpin ( DQ, 1 );
         udelay ( 2 );
         s3c2410_gpio_setpin ( DQ, 0 );
@@ -97,7 +97,7 @@ static unsigned char read_byte ( void ) {
     unsigned char data = 0;
 
     for ( i = 0; i < 8; i++ ) {
-        /* 总线从高拉至低，只需维持低电平17us，再把总线拉高，就产生读时隙 */
+        /* 总线从高拉至低，只需维持低电平17us，再把总线拉高，就产生读时序 */
         s3c2410_gpio_cfgpin ( DQ, CFG_OUT );
         s3c2410_gpio_pullup ( DQ, 0 );
         s3c2410_gpio_setpin ( DQ, 1 );
