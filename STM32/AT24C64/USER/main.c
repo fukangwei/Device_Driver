@@ -18,14 +18,14 @@ int main ( void ) {
     LED_Init();
     AT24CXX_Init();
 
-    while ( AT24CXX_Check() ) { /* ¼ì²â²»µ½24c02 */
+    while ( AT24CXX_Check() ) { /* æ£€æµ‹ä¸åˆ°24c02 */
         printf ( "I have some problems!\r\n" );
         delay_ms ( 500 );
     }
 
-    AT24CXX_Write ( 0, ( u8 * ) TEXT_Buffer, SIZE ); /* Ğ´Êı¾İ */
+    AT24CXX_Write ( 0, ( u8 * ) TEXT_Buffer, SIZE ); /* å†™æ•°æ® */
     delay_ms ( 500 );
-    AT24CXX_Read ( 0, datatemp, SIZE ); /* ¶ÁÊı¾İ */
+    AT24CXX_Read ( 0, datatemp, SIZE ); /* è¯»æ•°æ® */
     printf ( "The date is %s\r\n", datatemp );
 
     while ( 1 ) {
