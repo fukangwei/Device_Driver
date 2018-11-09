@@ -3,7 +3,7 @@
 #include "sys.h"
 #include "cc2420.h"
 
-extern uint8  CC2420_PSDU[];
+extern uint8 CC2420_PSDU[];
 
 #define SEND_MESSAGE 0
 
