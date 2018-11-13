@@ -20,7 +20,7 @@ int main ( void ) {
     LED_Init();
     AT24CXX_Init();
 
-    while ( AT24CXX_Check() ) { /* ¼ì²â²»µ½24c02 */
+    while ( AT24CXX_Check() ) {
         delay_ms ( 500 );
         LED0 = !LED0;
     }
