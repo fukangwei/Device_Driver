@@ -17,7 +17,7 @@ int main ( void ) {
     LED_Init();
     NRF24L01_Init();
 
-    while ( NRF24L01_Check() ) { /* 检测不到24L01 */
+    while ( NRF24L01_Check() ) {
         LED0 = !LED0;
         delay_ms ( 500 );
     }
@@ -26,7 +26,7 @@ int main ( void ) {
     Tx_Buf[1] = 1;
 
     while ( 1 ) {
-        NRF24L01_TxPacket ( Tx_Buf ); /* 发送数据 */
+        NRF24L01_TxPacket ( Tx_Buf );
         LED0 = ~LED0;
         delay_ms ( 1000 );
     }
