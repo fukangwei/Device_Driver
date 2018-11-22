@@ -7,10 +7,10 @@
 #include "touch.h"
 
 void Load_Drow_Dialog ( void ) {
-    LCD_Clear ( WHITE ); /* 清屏 */
-    POINT_COLOR = BLUE; /* 设置字体为蓝色 */
-    LCD_ShowString ( 216, 0, "RST" ); /* 显示清屏区域 */
-    POINT_COLOR = RED; /* 设置画笔蓝色 */
+    LCD_Clear ( WHITE );
+    POINT_COLOR = BLUE;
+    LCD_ShowString ( 216, 0, "RST" );
+    POINT_COLOR = RED;
 }
 
 int main ( void ) {
