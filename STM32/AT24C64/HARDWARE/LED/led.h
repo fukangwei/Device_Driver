@@ -3,6 +3,6 @@
 #include "stm32f10x.h"
 
 #define LED PCout(4)
-void LED_Init ( void );
 
+void LED_Init ( void );
 #endif
