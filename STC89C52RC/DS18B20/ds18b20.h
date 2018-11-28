@@ -1,6 +1,5 @@
 #ifndef DS18B20_H
 #define DS18B20_H
-
 #include <reg52.h>
 
 #define uchar unsigned char
@@ -15,5 +14,4 @@ uchar tmpread ( void ) ;
 void tmpwritebyte ( uchar dat );
 void tmpchange ( void );
 uint tmp ( void );
-
 #endif

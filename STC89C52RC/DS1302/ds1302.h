@@ -1,6 +1,5 @@
 #ifndef DS1302_H
 #define DS1302_H
-
 #include <reg52.h>
 
 typedef unsigned char uint8;
@@ -22,5 +21,4 @@ void write_ds1302 ( uint8 addr, uint8 dat );
 uint8 read_ds1302 ( uint8 addr );
 void set_time ( uint8 *timedata );
 void read_time ( uint8 *timedata );
-
 #endif

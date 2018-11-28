@@ -1,4 +1,4 @@
-#include<reg52.h>
+#include <reg52.h>
 
 sbit IR = P3 ^ 2; /* 红外接口标志 */
 

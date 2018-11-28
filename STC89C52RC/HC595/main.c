@@ -35,8 +35,7 @@ void SendByte ( unsigned char dat ) {
     }
 }
 
-/* 发送双字节程序。当595级联时，有n个595，就需要发送n字节后锁存 */
-void Send2Byte ( unsigned char dat1, unsigned char dat2 ) {
+void Send2Byte ( unsigned char dat1, unsigned char dat2 ) { /* 发送双字节程序。当595级联时，有n个595，就需要发送n字节后锁存 */
     SendByte ( dat1 );
     SendByte ( dat2 );
 }

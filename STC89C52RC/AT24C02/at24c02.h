@@ -1,6 +1,5 @@
 #ifndef AT24C02_H
 #define AT24C02_H
-
 #include <reg52.h>
 
 typedef unsigned char uint8;
@@ -18,5 +17,4 @@ void I2CSend ( uint8 byte );
 uint8 I2CRead ( void );
 uint8 read_eeprom ( uint8 addr ) ;
 void write_eeprom ( uint8 addr, uint8 databyte );
-
 #endif
