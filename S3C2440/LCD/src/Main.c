@@ -28,16 +28,16 @@
 
 void TFT_LCD_Test ( void );
 
-#define LCD_XSIZE  LCD_WIDTH
-#define LCD_YSIZE  LCD_HEIGHT
-#define SCR_XSIZE  LCD_WIDTH
-#define SCR_YSIZE  LCD_HEIGHT
+#define LCD_XSIZE LCD_WIDTH
+#define LCD_YSIZE LCD_HEIGHT
+#define SCR_XSIZE LCD_WIDTH
+#define SCR_YSIZE LCD_HEIGHT
 
 volatile static unsigned short LCD_BUFFER[SCR_YSIZE][SCR_XSIZE]; /* 定义320行，240列的数组，用于存放显示数据 */
 
 extern unsigned char sunflower_240x320[];
 
-#define M5D(n)  ((n)&0x1fffff)
+#define M5D(n)   ((n) & 0x1fffff)
 #define LCD_ADDR ((U32)LCD_BUFFER)
 
 #define ADC_FREQ 2500000
@@ -73,11 +73,11 @@ static void Pait_Bmp ( int x0, int y0, int h, int l, const unsigned char *bmp ) 
 }
 
 static void Lcd_ClearScr ( U16 c ) { /* 填充全屏为某一颜色 */
-    unsigned int x, y ;
+    unsigned int x, y;
 
-    for ( y = 0 ; y < SCR_YSIZE ; y++ ) {
-        for ( x = 0 ; x < SCR_XSIZE ; x++ ) {
-            LCD_BUFFER[y][x] = c ;
+    for ( y = 0; y < SCR_YSIZE; y++ ) {
+        for ( x = 0; x < SCR_XSIZE; x++ ) {
+            LCD_BUFFER[y][x] = c;
         }
     }
 }
