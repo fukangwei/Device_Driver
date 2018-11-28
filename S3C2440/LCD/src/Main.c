@@ -101,18 +101,18 @@ static void LCD_Init ( void ) { /* LCD初始化 */
     Lcd_Port_Init();
     /* 显示模式初始化 */
     /* bit[17:8](4:CLKVAL); bit[6:5](11:TFT LCD panel); bit[4:1](1100:16 bpp for TFT) */
-    rLCDCON1 = ( LCD_PIXCLOCK << 8 ) | ( 3 <<  5 ) | ( 12 << 1 );
+    rLCDCON1 = ( LCD_PIXCLOCK << 8 ) | ( 3 << 5 ) | ( 12 << 1 );
     /* bit[31:24](1:VBPD); bit[23:14](320-1:行数); bit[13:6](5:VFPD); bit[5:0](1:VSPW) */
     rLCDCON2 = ( LCD_UPPER_MARGIN << 24 ) | ( ( LCD_HEIGHT - 1 ) << 14 ) | ( LCD_LOWER_MARGIN << 6 ) | ( LCD_VSYNC_LEN << 0 );
     /* bit[25:19](36:HBPD); bit[18:8](240-1:列数); bit[7:0](19:HFPD) */
-    rLCDCON3 = ( LCD_RIGHT_MARGIN << 19 ) | ( ( LCD_WIDTH  - 1 ) <<  8 ) | ( LCD_LEFT_MARGIN << 0 );
+    rLCDCON3 = ( LCD_RIGHT_MARGIN << 19 ) | ( ( LCD_WIDTH - 1 ) <<  8 ) | ( LCD_LEFT_MARGIN << 0 );
     /* bit[15:8](13:MVAL，只有当“LCDCON1 bit[7](MMODE) = 1”才有效); bit[7:0](5:HSPW) */
     rLCDCON4 = ( 13 <<  8 ) | ( LCD_HSYNC_LEN << 0 );
     /* bit[11](5:6:5 Format); bit[9](VLINE/HSYNC polarity inverted); bit[8](VFRAME/VSYNC inverted); bit[3](Enalbe PWERN signal); bit[0](half-word swap control bit) */
-    rLCDCON5   =  ( 1 << 11 ) | ( 1 << 9 ) | ( 1 << 8 ) | ( 1 << 3 ) | ( 1 << 0 );
+    rLCDCON5 = ( 1 << 11 ) | ( 1 << 9 ) | ( 1 << 8 ) | ( 1 << 3 ) | ( 1 << 0 );
     /* 帧缓冲地址初始化 */
     /* LCDBANK：视频帧缓冲区内存地址30-22位；LCDBASEU：视频帧缓冲区的开始地址21-1位；LCDBASEL：视频帧缓冲区的结束地址21-1位 */
-    rLCDSADDR1 = ( ( LCD_ADDR >> 22 ) << 21 ) | ( ( M5D ( LCD_ADDR >> 1 ) ) <<  0 ); /* bit[29:21]:LCDBANK, bit[20:0]:LCDBASEU */
+    rLCDSADDR1 = ( ( LCD_ADDR >> 22 ) << 21 ) | ( ( M5D ( LCD_ADDR >> 1 ) ) << 0 ); /* bit[29:21]:LCDBANK, bit[20:0]:LCDBASEU */
     rLCDSADDR2 = M5D ( ( LCD_ADDR + LCD_WIDTH * LCD_HEIGHT * 2 ) >> 1 ); /* bit[20:0]:LCDBASEL */
     /* PAGEWIDTH：虚拟屏幕一行的字节数，如果不使用虚拟屏幕，设置为实际屏幕的行字节数；OFFSIZE:虚拟屏幕左侧偏移的字节数，如果不使用虚拟屏幕，设置为0 */
     rLCDSADDR3 = LCD_WIDTH; /* bit[21:11]:OFFSIZE; bit[10:0]:PAGEWIDTH */

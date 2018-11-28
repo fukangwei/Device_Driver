@@ -35,7 +35,7 @@ void Main ( void ) {
 
 void Timer0_init ( void ) {
     rTCFG0 = 49; /* “pclk/(49+1)”，即“50MHz/50” */
-    rTCFG1 = 0x03;  /* 16分频 = 62500Hz */
+    rTCFG1 = 0x03; /* 16分频 = 62500Hz */
     rTCNTB0 = 62500 / 2; /* TCNTB0[15:0] = 计数值 */
     rTCMPB0 = 0;
     rTCON |= ( 1 << 1 ); /* 将计数值装入TCNTB0、TCMPB0 */

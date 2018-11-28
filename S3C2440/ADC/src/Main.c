@@ -59,7 +59,7 @@ int ReadAdc ( int channel ) { /* 获取AD转换后的值 */
 void Set_Clk ( void ) {
     int i;
     U8 key;
-    U32 mpll_val = 0 ;
+    U32 mpll_val = 0;
     i = 2;  /* don't use 100M! */
 
     switch ( i ) {
