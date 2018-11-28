@@ -16,5 +16,4 @@
 #define uint32 unsigned long
 #define INT32U uint32
 #define u32 uint32
-
 #endif

@@ -2,6 +2,7 @@
 
 #define uchar unsigned char
 #define uint unsigned int
+
 void InitUart(); /* ³õÊ¼»¯´®¿Ú */
 void Uart_Send_String ( unsigned char *Data, int len );
 

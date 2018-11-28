@@ -21,8 +21,7 @@ void InitUART ( void ) {
     UTX0IF = 0; /* UART0的TX中断标志初始设置为0 */
 }
 
-/* 即延时xms毫秒 */
-void Delayms ( int xms ) {
+void Delayms ( int xms ) { /* 延时xms毫秒 */
     int i, j;
 
     for ( i = xms; i > 0; i-- )
