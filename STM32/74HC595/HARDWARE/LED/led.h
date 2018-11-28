@@ -14,5 +14,4 @@ void SendByte ( unsigned char dat );
 void Send2Byte ( unsigned char dat1, unsigned char dat2 );
 void Out595 ( void );
 void SendSeg ( unsigned char dat );
-
 #endif

@@ -24,5 +24,4 @@ void AT24CXX_Write ( u16 WriteAddr, u8 *pBuffer, u16 NumToWrite );
 void AT24CXX_Read ( u16 ReadAddr, u8 *pBuffer, u16 NumToRead );
 u8 AT24CXX_Check ( void );
 void AT24CXX_Init ( void );
-
 #endif

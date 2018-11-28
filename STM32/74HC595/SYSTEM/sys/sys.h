@@ -39,5 +39,4 @@
 #define PGin(n)  BIT_ADDR(GPIOG_IDR_Addr, n)
 
 void NVIC_Configuration ( void );
-
 #endif
