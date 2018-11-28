@@ -33,23 +33,22 @@ sbit SDA = P2 ^ 1; /* IIC数据引脚定义 */
 #define WHO_AM_I     0x75 /* IIC地址寄存器(默认数值0x68，只读) */
 #define SlaveAddress 0xD0 /* IIC写入时的地址字节数据 */
 
-void  delay ( unsigned int k );
-
-void  InitMPU6050();
-void  Delay5us();
-void  I2C_Start();
-void  I2C_Stop();
-void  I2C_SendACK ( bit ack );
-bit   I2C_RecvACK();
-void  I2C_SendByte ( uchar dat );
+void delay ( unsigned int k );
+void InitMPU6050();
+void Delay5us();
+void I2C_Start();
+void I2C_Stop();
+void I2C_SendACK ( bit ack );
+bit I2C_RecvACK();
+void I2C_SendByte ( uchar dat );
 uchar I2C_RecvByte();
-void  I2C_ReadPage();
-void  I2C_WritePage();
-void  display_ACCEL_x();
-void  display_ACCEL_y();
-void  display_ACCEL_z();
+void I2C_ReadPage();
+void I2C_WritePage();
+void display_ACCEL_x();
+void display_ACCEL_y();
+void display_ACCEL_z();
 uchar Single_ReadI2C ( uchar REG_Address ); /* 读取I2C数据 */
-void  Single_WriteI2C ( uchar REG_Address, uchar REG_data ); /* 向I2C写入数据 */
+void Single_WriteI2C ( uchar REG_Address, uchar REG_data ); /* 向I2C写入数据 */
 
 void delay ( unsigned int k ) {
     unsigned int i, j;

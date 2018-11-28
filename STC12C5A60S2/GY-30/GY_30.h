@@ -22,5 +22,4 @@ BYTE BH1750_RecvByte ( void );
 void Single_Write_BH1750 ( uchar REG_Address );
 void Init_BH1750 ( void );
 void Multiple_read_BH1750 ( void );
-
 #endif

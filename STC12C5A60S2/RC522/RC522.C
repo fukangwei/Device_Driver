@@ -5,12 +5,12 @@
 
 #define MAXRLEN 18
 
-/*---------------------------------------------------------------------------------------------
+/*---------------------------------------------------------------------------------------
  * 功能：寻卡，若成功则返回MI_OK
  * 参数：req_code是寻卡方式，0x52是寻感应区内所有符合14443A标准的卡，0x26是寻未进入休眠状态的卡
  *       pTagType是卡片类型代码。0x4400是Mifare_UltraLight，0x0400是Mifare_One(S50)，
  *       0x0200是Mifare_One(S70)，0x0800是Mifare_Pro(X)，0x4403是Mifare_DESFire
- *-------------------------------------------------------------------------------------------*/
+ *-------------------------------------------------------------------------------------*/
 char PcdRequest ( unsigned char req_code, unsigned char *pTagType ) {
     char status;
     unsigned int  unLen;
@@ -85,10 +85,10 @@ char PcdSelect ( unsigned char *pSnr ) { /* 选定卡片。参数pSnr是卡片序列号(4字节
     return status;
 }
 
-/*--------------------------------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------------------------------------
  * 功能：验证卡片密码，若成功返回MI_OK
  * 参数：auth_mode是密码验证模式，0x60是验证A密钥，0x61是验证B密钥；addr是块地址；pKey是密码；pSnr是卡片序列号(4字节)
----------------------------------------------------------------------------------------------------------------------*/
+------------------------------------------------------------------------------------------------------------*/
 char PcdAuthState ( unsigned char auth_mode, unsigned char addr, unsigned char *pKey, unsigned char *pSnr ) {
     char status;
     unsigned int  unLen;
@@ -294,12 +294,13 @@ void ClearBitMask ( unsigned char reg, unsigned char mask ) { /* 清RC522寄存器位
     WriteRawRC ( reg, tmp & ~mask ); /* clear bit mask */
 }
 
-/*------------------------------------------------------------------------------------------------
+/*-----------------------------------------------------------------------------------------
  * 功能：通过RC522和ISO14443卡通讯
  * 参数：Command是RC522命令字，pInData是通过RC522发送到卡片的数据，InLenByte是发送数据的字节长度，
  *       pOutData是接收到的卡片返回数据，pOutLenBit[OUT]是返回数据的位长度
- * ---------------------------------------------------------------------------------------------*/
-char PcdComMF522 ( unsigned char Command, unsigned char *pInData, unsigned char InLenByte, unsigned char *pOutData, unsigned int  *pOutLenBit ) {
+ * ---------------------------------------------------------------------------------------*/
+char PcdComMF522 ( unsigned char Command, unsigned char *pInData, unsigned char InLenByte, 
+                   unsigned char *pOutData, unsigned int  *pOutLenBit ) {
     char status = MI_ERR;
     unsigned char irqEn   = 0x00;
     unsigned char waitFor = 0x00;
@@ -399,10 +400,10 @@ void PcdAntennaOff() { /* 关闭天线 */
     ClearBitMask ( TxControlReg, 0x03 );
 }
 
-/*------------------------------------------------------------------------------------------------------
+/*-----------------------------------------------------------------------------------------------
  * 功能：扣款和充值，若成功返回MI_OK
  * 参数：dd_mode是命令字，0xC0为扣款，0xC1为充值；addr是钱包地址，pValue是数值，4字节增(减)值，低位在前
- *-----------------------------------------------------------------------------------------------------*/
+ *----------------------------------------------------------------------------------------------*/
 char PcdValue ( unsigned char dd_mode, unsigned char addr, unsigned char *pValue ) {
     char status;
     unsigned int  unLen;

@@ -56,11 +56,12 @@ void LCD_write_english_string ( unsigned char X, unsigned char Y, char *s ) {
     }
 }
 
-/*----------------------------------------------------------------------------------------------------------------------------------------
+/*----------------------------------------------------------------------------------------------------------------------------
  * 目的：在LCD上显示汉字
  * 参数：X、Y是显示汉字的起始X、Y坐标，ch_with是汉字点阵的宽度，num是显示汉字的个数，line是汉字点阵数组中的起始行数，row是汉字显示的行间距
- *--------------------------------------------------------------------------------------------------------------------------------------*/
-void LCD_write_chinese_string ( unsigned char X, unsigned char Y, unsigned char ch_with, unsigned char num, unsigned char line, unsigned char row ) {
+ *---------------------------------------------------------------------------------------------------------------------------*/
+void LCD_write_chinese_string ( unsigned char X, unsigned char Y, unsigned char ch_with, 
+                                unsigned char num, unsigned char line, unsigned char row ) {
     unsigned char i, n;
     LCD_set_XY ( X, Y );
 
@@ -82,10 +83,10 @@ void LCD_write_chinese_string ( unsigned char X, unsigned char Y, unsigned char 
     }
 }
 
-/* ----------------------------------------------------------------------------------------------
+/* ---------------------------------------------------------------------------------------
  * 目的：位图绘制函数
  * 参数：X、Y是位图绘制的起始X、Y坐标；map是位图点阵数据；Pix_x是位图像素(长)，Pix_y是位图像素(宽)
- * ---------------------------------------------------------------------------------------------*/
+ * ---------------------------------------------------------------------------------------*/
 void LCD_draw_bmp_pixel ( unsigned char X, unsigned char Y, unsigned char *map, unsigned char Pix_x, unsigned char Pix_y ) {
     unsigned int i, n;
     unsigned char row;

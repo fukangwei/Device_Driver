@@ -216,7 +216,8 @@ void CC2420_Init ( void ) { /* CC2420…‰∆µ–æ∆¨≥ı ºªØ∫Ø ˝ */
     delay_ms ( 10 );
     CC2420_Command ( CMD_SXOSCON );
     delay_ms ( 10 );
-    CC2420_PSDU[ 1 ] = ( PAN_ID_COMPRESSION << 6 ) | ( ACKNOWLEDGMENT_REQUEST << 5 ) | ( FRAME_PENDING << 4 ) | ( SECURITY_ENABLE << 3 ) | ( FRAME_TYPE_DATA << 0 );
+    CC2420_PSDU[ 1 ] = ( PAN_ID_COMPRESSION << 6 ) | ( ACKNOWLEDGMENT_REQUEST << 5 ) | ( FRAME_PENDING << 4 ) |
+                       ( SECURITY_ENABLE << 3 ) | ( FRAME_TYPE_DATA << 0 );
     CC2420_PSDU[ 2 ] = ( SOURCE_ADDRESSING_MODE << 6 ) | ( FRAME_VERSION << 4 ) | ( DEST_ADDRESSING_MODE << 2 );
     CC2420_PSDU[ 3 ] = SEQUENCE_NUMBER;
     CC2420_PSDU[ 4 ] =  CC2420_Destination_PANID[0];

@@ -12,5 +12,4 @@ typedef double        F64; /* double precision floating point variable (64bits) 
 
 #define uchar unsigned char
 #define uint unsigned int
-
 #endif

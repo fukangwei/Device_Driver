@@ -143,5 +143,4 @@ void RF4432_SetRxMode ( void );
 void RF4432_TxPacket ( void );
 bit RF4432_RxPacket ( void );
 void RF4432_ReadBurestReg ( unsigned char  addr, unsigned char  *p, unsigned char  count );
-
 #endif

@@ -1,6 +1,5 @@
 #ifndef LCD12864_H
 #define LCD12864_H
-
 #include "STC12C5A.h"
 
 sbit LCD12864_RS  = P1 ^ 0; /* RS¿ØÖÆÒý½Å */
@@ -15,5 +14,4 @@ void LCD12864_WriteInfomation ( unsigned char ucData, bit bComOrData );
 void LCD12864_CheckBusy ( void );
 void LCD12864_DisplayOneLine ( unsigned char ucPos, unsigned char *ucStr );
 void Delay ( unsigned int uiCount );
-
 #endif

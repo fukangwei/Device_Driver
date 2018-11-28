@@ -287,5 +287,4 @@ void CC2420_WriteTXFIFO ( void );
 #define CC2420_TXFIFO    0xE8
 #define CC2420_INIT      0xEE
 #define CC2420_EXT       0xEF
-
 #endif

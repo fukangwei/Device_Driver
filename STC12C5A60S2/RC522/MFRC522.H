@@ -21,7 +21,8 @@ char PcdWrite ( unsigned char addr, unsigned char *pData );
 char PcdValue ( unsigned char dd_mode, unsigned char addr, unsigned char *pValue );
 char PcdBakValue ( unsigned char sourceaddr, unsigned char goaladdr );
 char PcdHalt ( void );
-char PcdComMF522 ( unsigned char Command, unsigned char *pInData, unsigned char InLenByte, unsigned char *pOutData, unsigned int  *pOutLenBit );
+char PcdComMF522 ( unsigned char Command, unsigned char *pInData, unsigned char InLenByte, 
+                   unsigned char *pOutData, unsigned int  *pOutLenBit );
 void CalulateCRC ( unsigned char *pIndata, unsigned char len, unsigned char *pOutData );
 void WriteRawRC ( unsigned char Address, unsigned char value );
 unsigned char ReadRawRC ( unsigned char Address );
@@ -130,5 +131,4 @@ void delay_10ms ( unsigned int _10ms );
 #define MI_OK       0
 #define MI_NOTAGERR (-1)
 #define MI_ERR      (-2)
-
 #endif

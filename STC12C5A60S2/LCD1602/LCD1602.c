@@ -10,12 +10,7 @@ static void delay1ms ( uint8 i ) {
     }
 }
 
-/*-------------------------------------------------
- * 目的：读写检查，确保STA7为0
- * 读状态：输入“RS = L”，“RW = H”和“E = H”
- * 对控制器每次进行读写操作之前，都必须进行读写检查
- -------------------------------------------------*/
-static void wait ( void ) {
+static void wait ( void ) { /* 读写检查，确保STA7为0 */
     P0 = 0xFF;
 
     do {
@@ -25,8 +20,7 @@ static void wait ( void ) {
     } while ( STA7 == 1 );
 }
 
-/* 写数据。输入“RS = H”，“RW = L”，“D0至D7 = 数据”，“E = 高脉冲” */
-static void w_dat ( uint8 dat ) {
+static void w_dat ( uint8 dat ) { /* 写数据 */
     wait();
     RS = 1;
     RW = 0;
@@ -36,8 +30,7 @@ static void w_dat ( uint8 dat ) {
     EN = 0;
 }
 
-/* 写命令。输入“RS = L”，“RW = L”，D0至D7为指令码，“E = 高脉冲” */
-static void w_cmd ( uint8 cmd ) {
+static void w_cmd ( uint8 cmd ) { /* 写命令 */
     wait();
     P0 = cmd;
     RS = 0;

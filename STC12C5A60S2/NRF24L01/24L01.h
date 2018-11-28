@@ -1,6 +1,5 @@
 #ifndef __NRF24L01_H__
 #define __NRF24L01_H__
-
 #include "STC12C5A.H"
 
 #define uchar unsigned char
@@ -60,5 +59,4 @@ void RX_Mode ( void );
 uchar NRF24L01_Check ( void );
 uchar nRF24L01_RxPacket ( unsigned char *rx_buf );
 void nRF24L01_TxPacket ( unsigned char *tx_buf );
-
-#endif /*__NRF24L01_H__ */
+#endif
