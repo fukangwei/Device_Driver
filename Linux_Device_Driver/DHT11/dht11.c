@@ -26,46 +26,46 @@
 #define DEVICE_NAME "dht11"
 
 static char DHT11_read_byte ( void ) {
-    char DHT11_byte ;
-    unsigned char i ;
-    unsigned char temp ;
-    DHT11_byte = 0 ;
+    char DHT11_byte;
+    unsigned char i;
+    unsigned char temp;
+    DHT11_byte = 0;
 
-    for ( i = 0 ; i < 8 ; i ++ ) {
-        temp = 0 ;
+    for ( i = 0; i < 8; i ++ ) {
+        temp = 0;
 
         while ( ! ( s3c2410_gpio_getpin ( S3C2410_GPF ( 0 ) ) ) ) {
-            temp ++ ;
+            temp++;
 
             if ( temp > 12 ) {
-                return 1 ;
+                return 1;
             }
 
-            udelay ( 5 ) ;
+            udelay ( 5 );
         }
 
-        temp = 0 ;
+        temp = 0;
 
         while ( s3c2410_gpio_getpin ( S3C2410_GPF ( 0 ) ) ) {
-            temp ++ ;
+            temp++;
 
             if ( temp > 20 ) {
-                return 1 ;
+                return 1;
             }
 
-            udelay ( 5 ) ;
+            udelay ( 5 );
         }
 
         if ( temp > 6 ) {
-            DHT11_byte <<= 1 ;
-            DHT11_byte |= 1 ;
+            DHT11_byte <<= 1;
+            DHT11_byte |= 1;
         } else {
-            DHT11_byte <<= 1 ;
-            DHT11_byte |= 0 ;
+            DHT11_byte <<= 1;
+            DHT11_byte |= 0;
         }
     }
 
-    return DHT11_byte ;
+    return DHT11_byte;
 }
 
 static ssize_t DHT11_read ( struct file *filp, char __user *buf, size_t count, loff_t *f_pos ) {
@@ -73,19 +73,19 @@ static ssize_t DHT11_read ( struct file *filp, char __user *buf, size_t count, l
     unsigned char i;
     unsigned char err;
     char tempBuf[5];
-    err = 0 ;
-    s3c2410_gpio_cfgpin ( S3C2410_GPF ( 0 ) , S3C2410_GPIO_OUTPUT );
-    s3c2410_gpio_setpin ( S3C2410_GPF ( 0 ) , 0 );
+    err = 0;
+    s3c2410_gpio_cfgpin ( S3C2410_GPF ( 0 ), S3C2410_GPIO_OUTPUT );
+    s3c2410_gpio_setpin ( S3C2410_GPF ( 0 ), 0 );
     msleep ( 18 );
-    s3c2410_gpio_setpin ( S3C2410_GPF ( 0 ) , 1 );
+    s3c2410_gpio_setpin ( S3C2410_GPF ( 0 ), 1 );
     udelay ( 40 );
-    s3c2410_gpio_cfgpin ( S3C2410_GPF ( 0 ) , S3C2410_GPIO_INPUT );
+    s3c2410_gpio_cfgpin ( S3C2410_GPF ( 0 ), S3C2410_GPIO_INPUT );
 
     if ( !err ) {
-        DataTemp = 10 ;
+        DataTemp = 10;
 
         while ( ! ( s3c2410_gpio_getpin ( S3C2410_GPF ( 0 ) ) ) && DataTemp ) {
-            DataTemp --;
+            DataTemp--;
             udelay ( 10 );
         }
 
@@ -96,10 +96,10 @@ static ssize_t DHT11_read ( struct file *filp, char __user *buf, size_t count, l
     }
 
     if ( !err ) {
-        DataTemp = 10 ;
+        DataTemp = 10;
 
         while ( ( s3c2410_gpio_getpin ( S3C2410_GPF ( 0 ) ) ) && DataTemp ) {
-            DataTemp --;
+            DataTemp--;
             udelay ( 10 );
         }
 
@@ -111,13 +111,13 @@ static ssize_t DHT11_read ( struct file *filp, char __user *buf, size_t count, l
 
     if ( !err ) {
         for ( i = 0; i < 5; i ++ ) {
-            tempBuf[i] = DHT11_read_byte () ;
+            tempBuf[i] = DHT11_read_byte ();
         }
 
-        DataTemp = 0 ;
+        DataTemp = 0;
 
         for ( i = 0; i < 4; i ++ ) {
-            DataTemp += tempBuf[i] ;
+            DataTemp += tempBuf[i];
         }
 
         if ( DataTemp != tempBuf[4] ) {
@@ -125,16 +125,16 @@ static ssize_t DHT11_read ( struct file *filp, char __user *buf, size_t count, l
         }
 
         if ( count > 5 ) {
-            count = 5 ;
+            count = 5;
         }
 
-        if ( copy_to_user ( buf , tempBuf , count ) ) {
-            count = -EFAULT ;
+        if ( copy_to_user ( buf, tempBuf, count ) ) {
+            count = -EFAULT;
         }
     }
 
-    s3c2410_gpio_cfgpin ( S3C2410_GPF ( 0 ) , S3C2410_GPIO_OUTPUT );
-    s3c2410_gpio_setpin ( S3C2410_GPF ( 0 ) , 1 );
+    s3c2410_gpio_cfgpin ( S3C2410_GPF ( 0 ), S3C2410_GPIO_OUTPUT );
+    s3c2410_gpio_setpin ( S3C2410_GPF ( 0 ), 1 );
     return count;
 }
 
@@ -151,8 +151,8 @@ static struct miscdevice misc = {
 
 static int __init DHT11_init_module ( void ) {
     int ret;
-    s3c2410_gpio_cfgpin ( S3C2410_GPF ( 0 ) , S3C2410_GPIO_OUTPUT );
-    s3c2410_gpio_setpin ( S3C2410_GPF ( 0 ) , 1 );
+    s3c2410_gpio_cfgpin ( S3C2410_GPF ( 0 ), S3C2410_GPIO_OUTPUT );
+    s3c2410_gpio_setpin ( S3C2410_GPF ( 0 ), 1 );
     ret = misc_register ( &misc );
     printk ( DEVICE_NAME"\tinitialized\n" );
     return ret;

@@ -22,7 +22,7 @@ int main ( void ) {
 
     while ( 1 ) {
         sleep ( 1 );
-        retval = read ( fd , buf , 5 );
+        retval = read ( fd, buf, 5 );
 
         if ( retval == -1 ) {
             perror ( "read dht11 error" );
