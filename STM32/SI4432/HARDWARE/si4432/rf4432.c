@@ -51,7 +51,7 @@ void RF4432_ReadBurestReg ( unsigned  char  addr, unsigned   char  *p, unsigned 
 }
 
 void RF4432_IOInit ( void ) {
-    GPIO_InitTypeDef  GPIO_InitStructure;
+    GPIO_InitTypeDef GPIO_InitStructure;
     RCC_APB2PeriphClockCmd ( RCC_APB2Periph_GPIOC, ENABLE );
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_2;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;

@@ -4,6 +4,5 @@
 
 #define LED0 PCout(4)
 
-void LED_Init ( void ); 
-
+void LED_Init ( void );
 #endif

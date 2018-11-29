@@ -200,7 +200,8 @@ u8 SD_GetCSD ( u8 *csd_data ) { /* 获取SD卡的CSD信息，包括容量和速度信息。参数ci
     }
 }
 
-u32 SD_GetSectorCount ( void ) { /* 获取SD卡的总扇区数(扇区数)。返回SD卡的容量(扇区数/512字节)，0表示出错。每扇区的字节数必为512，否则初始化不能通过 */
+/* 获取SD卡的总扇区数(扇区数)。返回SD卡的容量(扇区数/512字节)，0表示出错。每扇区的字节数必为512，否则初始化不能通过 */
+u32 SD_GetSectorCount ( void ) {
     u8 csd[16];
     u32 Capacity;
     u8 n;

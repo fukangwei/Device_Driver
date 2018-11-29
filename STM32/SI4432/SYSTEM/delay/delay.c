@@ -94,7 +94,7 @@ void delay_ms ( u16 nms ) {
     u32 temp;
     SysTick->LOAD = ( u32 ) nms * fac_ms;
     SysTick->VAL = 0x00;
-    SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk ;
+    SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;
 
     do {
         temp = SysTick->CTRL;

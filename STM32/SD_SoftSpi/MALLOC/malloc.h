@@ -2,7 +2,7 @@
 #define __MALLOC_H_
 #include "os_def.h"
 
-#define MALLOC(num,type) (type*)mymalloc((num) * sizeof(type)) /* 定义malloc新接口 */
+#define MALLOC(num, type) (type *)mymalloc((num) * sizeof(type)) /* 定义malloc新接口 */
 
 /* 内存分配与释放接口 */
 void myfree ( void *ptr );
@@ -21,5 +21,4 @@ typedef struct _m_mallco_dev { /* 内存管理控制器 */
     INT16U *memmap; /* 内存管理状态表 */
     INT8U memrdy; /* 内存管理是否就绪 */
 } _m_mallco_dev;
-
 #endif

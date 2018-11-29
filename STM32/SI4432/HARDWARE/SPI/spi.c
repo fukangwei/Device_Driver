@@ -2,7 +2,7 @@
 
 void SPI2_Init ( void ) {
     GPIO_InitTypeDef GPIO_InitStructure;
-    SPI_InitTypeDef  SPI_InitStructure;
+    SPI_InitTypeDef SPI_InitStructure;
     RCC_APB2PeriphClockCmd ( RCC_APB2Periph_GPIOB, ENABLE );
     RCC_APB1PeriphClockCmd ( RCC_APB1Periph_SPI2,  ENABLE );
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
@@ -75,7 +75,7 @@ void SPIx_Init ( void ) {
     SPI_InitStructure.SPI_Mode = SPI_Mode_Master;
     SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;
     SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;
-    SPI_InitStructure.SPI_CPHA = SPI_CPHA_1Edge ;
+    SPI_InitStructure.SPI_CPHA = SPI_CPHA_1Edge;
     SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
     SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_256;
     SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
@@ -86,7 +86,7 @@ void SPIx_Init ( void ) {
 }
 
 void SPIx_SetSpeed ( u8 SpeedSet ) {
-    SPI_InitStructure.SPI_BaudRatePrescaler = SpeedSet ;
+    SPI_InitStructure.SPI_BaudRatePrescaler = SpeedSet;
     SPI_Init ( SPI1, &SPI_InitStructure );
     SPI_Cmd ( SPI1, ENABLE );
 }

@@ -19,5 +19,4 @@ void OV7670_Brightness ( u8 bright );
 void OV7670_Contrast ( u8 contrast );
 void OV7670_Special_Effects ( u8 eft );
 void OV7670_Window_Set ( u16 sx, u16 sy, u16 width, u16 height );
-
 #endif
