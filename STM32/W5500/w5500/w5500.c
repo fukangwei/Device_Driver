@@ -249,13 +249,11 @@ void setRCR ( uint8 retry ) { /* This function set the number of Retransmission 
     IINCHIP_WRITE ( WIZ_RCR, retry );
 }
 
-/* Set the interrupt mask Enable/Disable appropriate Interrupt('1': interrupt enable) */
-void clearIR ( uint8 mask ) {
+void clearIR ( uint8 mask ) { /* Set the interrupt mask Enable/Disable appropriate Interrupt('1': interrupt enable) */
     IINCHIP_WRITE ( IR, ~mask | getIR() ); /* must be setted 0x10 */
 }
 
-/* Set the maximum segment size of TCP in Active Mode) */
-void setSn_MSS ( SOCKET s, uint16 Sn_MSSR ) {
+void setSn_MSS ( SOCKET s, uint16 Sn_MSSR ) { /* Set the maximum segment size of TCP in Active Mode) */
     IINCHIP_WRITE ( Sn_MSSR0 ( s ), ( uint8 ) ( ( Sn_MSSR & 0xff00 ) >> 8 ) );
     IINCHIP_WRITE ( Sn_MSSR1 ( s ), ( uint8 ) ( Sn_MSSR & 0x00ff ) );
 }

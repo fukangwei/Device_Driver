@@ -16,5 +16,4 @@ void WS_Init ( void );
 void WS_SetAll ( void );
 void WS_Set1 ( unsigned long dat ); 
 u32 ColorToColor ( unsigned long color0, unsigned long color1 );
-
 #endif

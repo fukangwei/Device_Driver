@@ -31,7 +31,7 @@ void SPIx_Init ( void ) {
 }
 
 void SPIx_SetSpeed ( u8 SpeedSet ) {
-    SPI_InitStructure.SPI_BaudRatePrescaler = SpeedSet ;
+    SPI_InitStructure.SPI_BaudRatePrescaler = SpeedSet;
     SPI_Init ( SPI1, &SPI_InitStructure );
     SPI_Cmd ( SPI1, ENABLE );
 }

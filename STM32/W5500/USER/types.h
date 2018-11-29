@@ -45,5 +45,4 @@ typedef union _un_i2cval {
     u_int iVal;
     u_char cVal[2];
 } un_i2cval;
-
 #endif

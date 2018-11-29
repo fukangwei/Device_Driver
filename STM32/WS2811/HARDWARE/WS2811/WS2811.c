@@ -5,7 +5,7 @@
 unsigned long WsDat[nWs]; /* 显存 */
 
 void WS_Init() {
-    GPIO_InitTypeDef  GPIO_InitStructure;
+    GPIO_InitTypeDef GPIO_InitStructure;
     RCC_APB2PeriphClockCmd ( RCC_APB2Periph_GPIOA, ENABLE );
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;

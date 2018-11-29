@@ -66,5 +66,4 @@ extern CONFIG_MSG ConfigMsg, RecvMsg;
 #define NORMAL_STATE     0
 #define NEW_APP_IN_BACK  1
 #define CONFIGTOOL_FW_UP 2
-
 #endif
