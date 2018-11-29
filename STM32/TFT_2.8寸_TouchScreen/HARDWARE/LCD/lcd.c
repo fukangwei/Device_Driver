@@ -1127,12 +1127,12 @@ void Draw_Circle ( u16 x0, u16 y0, u8 r ) {
 }
 
 void LCD_ShowChar ( u16 x, u16 y, u8 num, u8 size, u8 mode ) {
-#if USE_HORIZONTAL==1
-#define MAX_CHAR_POSX 312
-#define MAX_CHAR_POSY 232
+#if USE_HORIZONTAL == 1
+    #define MAX_CHAR_POSX 312
+    #define MAX_CHAR_POSY 232
 #else
-#define MAX_CHAR_POSX 232
-#define MAX_CHAR_POSY 312
+    #define MAX_CHAR_POSX 232
+    #define MAX_CHAR_POSY 312
 #endif
     u8 temp;
     u8 pos, t;

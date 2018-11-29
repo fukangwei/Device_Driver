@@ -40,5 +40,4 @@ void SPI_Flash_Erase_Sector ( u32 Dst_Addr );
 void SPI_Flash_Wait_Busy ( void );
 void SPI_Flash_PowerDown ( void );
 void SPI_Flash_WAKEUP ( void );
-
 #endif

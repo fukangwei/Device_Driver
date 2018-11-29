@@ -2,10 +2,9 @@
 #include "spi.h"
 #include "delay.h"
 
-/* 4KbytesÎªÒ»¸öSector£¬16¸öÉÈÇøÎª1¸öBlock¡£W25X16ÈİÁ¿Îª2M×Ö½Ú£¬¹²ÓĞ32¸öBlock£¬512¸öSector */
-void SPI_Flash_Init ( void ) {
+void SPI_Flash_Init ( void ) { /* 4KbytesÎªÒ»¸öSector£¬16¸öÉÈÇøÎª1¸öBlock¡£W25X16ÈİÁ¿Îª2M×Ö½Ú£¬¹²ÓĞ32¸öBlock£¬512¸öSector */
     GPIO_InitTypeDef GPIO_InitStructure;
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2 | GPIO_Pin_3 | GPIO_Pin_4; 
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2 | GPIO_Pin_3 | GPIO_Pin_4;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;  
     GPIO_Init ( GPIOA, &GPIO_InitStructure );
     GPIO_SetBits ( GPIOA, GPIO_Pin_2 | GPIO_Pin_3 | GPIO_Pin_4 );
@@ -178,8 +177,7 @@ void SPI_Flash_Erase_Chip ( void ) { /* ²Á³ıÕû¸öĞ¾Æ¬£¬ÕûÆ¬²Á³ıÊ±¼ä£ºW25X16Îª25s£
     SPI_Flash_Wait_Busy(); /* µÈ´ıĞ¾Æ¬²Á³ı½áÊø */
 }
 
-/* ²Á³ıÒ»¸öÉÈÇø£¬²ÎÊıDst_AddrÊÇÉÈÇøµØÖ·£¬²Á³ıÒ»¸öÉÈÇøµÄ×îÉÙÊ±¼äÊÇ150ms */
-void SPI_Flash_Erase_Sector ( u32 Dst_Addr ) {
+void SPI_Flash_Erase_Sector ( u32 Dst_Addr ) { /* ²Á³ıÒ»¸öÉÈÇø£¬²ÎÊıDst_AddrÊÇÉÈÇøµØÖ·£¬²Á³ıÒ»¸öÉÈÇøµÄ×îÉÙÊ±¼äÊÇ150ms */
     Dst_Addr *= 4096;
     SPI_FLASH_Write_Enable();
     SPI_Flash_Wait_Busy();

@@ -53,7 +53,7 @@ u16 ADS_Read_AD ( u8 CMD ) {
 
 /* 连续读取READ_TIMES次数据，对这些数据升序排列，然后去掉最低和最高LOST_VAL个数，取平均值 */
 #define READ_TIMES 15 /* 读取次数 */
-#define LOST_VAL 5    /* 丢弃值 */
+#define LOST_VAL   5  /* 丢弃值 */
 
 u16 ADS_Read_XY ( u8 xy ) {
     u16 i, j;
@@ -187,6 +187,7 @@ void Pen_Int_Set ( u8 en ) { /* PEN中断设置 */
 
 #ifdef ADJ_SAVE_ENABLE /* 此部分涉及到使用外部EEPROM，如果没有外部EEPROM，屏蔽此部分即可 */
 #define SAVE_ADDR_BASE 40 /* 保存在EEPROM里面的地址区间基址，占用13个字节(RANGE：SAVE_ADDR_BASE至SAVE_ADDR_BASE+12) */
+
 void Save_Adjdata ( void ) { /* 保存校准参数 */
     s32 temp;
     /* 保存校正结果 */

@@ -5,5 +5,4 @@
 void SPIx_Init ( void );
 void SPIx_SetSpeed ( u8 SpeedSet );
 u8 SPIx_ReadWriteByte ( u8 TxData );
-
 #endif

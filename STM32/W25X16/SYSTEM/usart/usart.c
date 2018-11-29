@@ -68,7 +68,7 @@ void USART1_IRQHandler ( void ) {
                 if ( Res == 0x0d ) {
                     USART_RX_STA |= 0x40;
                 } else {
-                    USART_RX_BUF[USART_RX_STA & 0X3F] = Res ;
+                    USART_RX_BUF[USART_RX_STA & 0X3F] = Res;
                     USART_RX_STA++;
 
                     if ( USART_RX_STA > 63 ) {
