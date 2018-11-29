@@ -20,5 +20,4 @@ void HMC5883_SendACK ( uchar ack );
 uchar  HMC5883_RecvACK ( void );
 void HMC5883_SendByte ( BYTE dat );
 BYTE HMC5883_RecvByte ( void );
-
 #endif

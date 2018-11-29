@@ -21,5 +21,4 @@ typedef struct _m_mallco_dev { /* 内存管理控制器 */
     INT16U *memmap; /* 内存管理状态表 */
     INT8U memrdy; /* 内存管理是否就绪 */
 } _m_mallco_dev;
-
 #endif

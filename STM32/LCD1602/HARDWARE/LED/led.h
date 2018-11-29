@@ -5,6 +5,5 @@
 #define LED0 PAout(8)
 #define LED1 PDout(2)
 
-void LED_Init ( void ); 
-
+void LED_Init ( void );
 #endif

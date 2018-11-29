@@ -8,5 +8,4 @@ typedef unsigned short INT16U;
 typedef signed   short INT16S;
 typedef unsigned int   INT32U;
 typedef signed   int   INT32S;
-
 #endif

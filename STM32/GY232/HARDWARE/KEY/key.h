@@ -19,5 +19,4 @@ typedef struct {
 
 void KEY_Init ( void );
 u8 KEY_Scan ( void );
-
 #endif

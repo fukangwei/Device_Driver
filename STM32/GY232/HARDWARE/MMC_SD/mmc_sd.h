@@ -50,5 +50,4 @@ u8 SD_WriteDisk ( u8 *buf, u32 sector, u8 cnt );
 u32 SD_GetSectorCount ( void );
 u8 SD_GetCID ( u8 *cid_data );
 u8 SD_GetCSD ( u8 *csd_data );
-
 #endif

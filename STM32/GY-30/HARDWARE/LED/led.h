@@ -6,5 +6,4 @@
 #define LED1 PBout(11)
 
 void LED_Init ( void );
-
 #endif

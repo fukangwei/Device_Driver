@@ -9,5 +9,4 @@
 void HX711_InIt ( void );
 void Get_Weight ( void );
 u32 Get_Maopi ( void );
-
 #endif

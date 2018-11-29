@@ -11,8 +11,7 @@
 /* 1602液晶使能引脚 */
 #define LCD_EN_Set() GPIO_SetBits(GPIOC, GPIO_Pin_7)
 #define LCD_EN_Clr() GPIO_ResetBits(GPIOC, GPIO_Pin_7)
-/* 1602液晶数据端口 */
-#define DATAOUT(x) GPIO_Write(GPIOA, x)
+#define DATAOUT(x) GPIO_Write(GPIOA, x) /* 1602液晶数据端口 */
 
 void GPIO_Configuration ( void );
 void LCD1602_Wait_Ready ( void );
@@ -22,5 +21,4 @@ void LCD1602_ClearScreen ( void );
 void LCD1602_Set_Cursor ( u8 x, u8 y );
 void LCD1602_Show_Str ( u8 x, u8 y, u8 *str );
 void LCD1602_Init ( void );
-
 #endif
