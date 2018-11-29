@@ -105,8 +105,7 @@ void LCD_write_chinese_string ( unsigned char X, unsigned char Y, unsigned char 
     }
 }
 
-void LCD_draw_bmp_pixel ( unsigned char X, unsigned char Y, unsigned char *map,
-                          unsigned char Pix_x, unsigned char Pix_y ) {
+void LCD_draw_bmp_pixel ( unsigned char X, unsigned char Y, unsigned char *map, unsigned char Pix_x, unsigned char Pix_y ) {
     unsigned int i, n;
     unsigned char row;
 

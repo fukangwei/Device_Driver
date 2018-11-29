@@ -212,5 +212,4 @@ void LCD_Set_Window ( u16 sx, u16 sy, u16 width, u16 height );
 #define R192 0xC0
 #define R193 0xC1
 #define R229 0xE5
-
 #endif

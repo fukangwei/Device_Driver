@@ -30,5 +30,4 @@ typedef unsigned int   uint;
 
 void InitMPU6050 ( void );
 int GetData ( uchar REG_Address );
-
 #endif

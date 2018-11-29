@@ -23,12 +23,11 @@
 #define PWR_MGMT_1   0x6B /* 电源管理 */
 #define WHO_AM_I     0x75 /* IIC地址寄存器 */
 
-#define SlaveAddress   0xD0
+#define SlaveAddress 0xD0
 
 void I2C_ByteWrite ( uint8_t REG_Address, uint8_t REG_data );
 uint8_t I2C_ByteRead ( uint8_t REG_Address );
 void I2C_MPU6050_Init ( void );
 void InitMPU6050 ( void );
 unsigned int GetData ( unsigned char REG_Address );
-
 #endif

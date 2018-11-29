@@ -58,5 +58,4 @@ u8 NRF24L01_Write_Reg ( u8 reg, u8 value );
 u8 NRF24L01_Check ( void );
 u8 NRF24L01_TxPacket ( u8 *txbuf );
 u8 NRF24L01_RxPacket ( u8 *rxbuf );
-
 #endif
