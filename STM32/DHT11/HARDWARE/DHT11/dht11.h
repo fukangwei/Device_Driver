@@ -15,5 +15,4 @@ u8 DHT11_Read_Byte ( void );
 u8 DHT11_Read_Bit ( void );
 u8 DHT11_Check ( void );
 void DHT11_Rst ( void );
-
 #endif

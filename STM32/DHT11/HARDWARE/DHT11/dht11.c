@@ -94,7 +94,7 @@ u8 DHT11_Read_Data ( u8 *temp, u8 *humi ) { /* 从DHT11读取一次数据，参数temp温度
 }
 
 u8 DHT11_Init ( void ) { /* 初始化DHT11的IO口DQ，同时检测DHT11的存在，返回1表示不存在，0表示存在 */
-    GPIO_InitTypeDef  GPIO_InitStructure;
+    GPIO_InitTypeDef GPIO_InitStructure;
     RCC_APB2PeriphClockCmd ( RCC_APB2Periph_GPIOA, ENABLE );
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;

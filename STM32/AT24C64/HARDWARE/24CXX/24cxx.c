@@ -50,7 +50,7 @@ void AT24CXX_WriteOneByte ( u16 WriteAddr, u8 DataToWrite ) {
     delay_ms ( 10 );
 }
 
-/* 在AT24CXX指定地址写入长度为Len的数据，用于写入16bit或者32bit的数据。参数WriteAddr是地址，DataToWrite是数据数组首地址，Len是要写入数据的长度(2或4) */
+/* 指定地址写入长度为Len的数据，用于写入16bit或者32bit的数据。参数WriteAddr是地址，DataToWrite是数据数组首地址，Len是要写入数据的长度(2或4) */
 void AT24CXX_WriteLenByte ( u16 WriteAddr, u32 DataToWrite, u8 Len ) {
     u8 t;
 

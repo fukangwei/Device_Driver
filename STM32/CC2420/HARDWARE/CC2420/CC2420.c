@@ -11,7 +11,7 @@ uint8 CC2420_Destination_ShortAddr[2] = {0xcc, 0xcc};
 uint8 CC2420_Destination_IEEEAddr[8] = {0x12, 0x34, 0x56, 0x7c, 0xcc, 0xcc, 0xcc, 0xcc}; /* 目标地址 */
 
 void CC2420_IOinit ( void ) { /* CC2420引脚初始化 */
-    GPIO_InitTypeDef  GPIO_InitStructure;
+    GPIO_InitTypeDef GPIO_InitStructure;
     RCC_APB2PeriphClockCmd ( RCC_APB2Periph_GPIOA, ENABLE );
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_9; /* 输出引脚 */
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
@@ -21,7 +21,8 @@ void CC2420_IOinit ( void ) { /* CC2420引脚初始化 */
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init ( GPIOA, &GPIO_InitStructure );
-    GPIO_SetBits ( GPIOB, GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3 | GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 );
+    GPIO_SetBits ( GPIOB, GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3 | GPIO_Pin_4 |
+                          GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 );
     SPI_Init();
 }
 
@@ -230,7 +231,8 @@ void CC2420_Init ( void ) { /* CC2420射频芯片初始化函数 */
     delay_ms ( 10 );
     CC2420_Command ( CMD_SXOSCON );
     delay_ms ( 10 );
-    CC2420_PSDU[1] = ( PAN_ID_COMPRESSION << 6 ) | ( ACKNOWLEDGMENT_REQUEST << 5 ) | ( FRAME_PENDING << 4 ) | ( SECURITY_ENABLE << 3 ) | ( FRAME_TYPE_DATA << 0 );
+    CC2420_PSDU[1] = ( PAN_ID_COMPRESSION << 6 ) | ( ACKNOWLEDGMENT_REQUEST << 5 ) | ( FRAME_PENDING << 4 ) |
+                     ( SECURITY_ENABLE << 3 ) | ( FRAME_TYPE_DATA << 0 );
     CC2420_PSDU[2] = ( SOURCE_ADDRESSING_MODE << 6 ) | ( FRAME_VERSION << 4 ) | ( DEST_ADDRESSING_MODE << 2 );
     CC2420_PSDU[3] = SEQUENCE_NUMBER;
     CC2420_PSDU[4] =  CC2420_Destination_PANID[0];
