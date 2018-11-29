@@ -36,7 +36,7 @@ void uart_init ( u32 bound ) {
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
     GPIO_Init ( GPIOA, &GPIO_InitStructure );
     NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3 ;
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3;
     NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3;
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init ( &NVIC_InitStructure );
@@ -68,7 +68,7 @@ void USART1_IRQHandler ( void ) {
                 if ( Res == 0x0d ) {
                     USART_RX_STA |= 0x40;
                 } else {
-                    USART_RX_BUF[USART_RX_STA & 0X3F] = Res ;
+                    USART_RX_BUF[USART_RX_STA & 0X3F] = Res;
                     USART_RX_STA++;
 
                     if ( USART_RX_STA > 63 ) {

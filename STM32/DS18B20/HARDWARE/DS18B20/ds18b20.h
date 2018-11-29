@@ -9,5 +9,4 @@
 
 u8 DS18B20_Init ( void );
 short DS18B20_Get_Temp ( void );
-
 #endif
