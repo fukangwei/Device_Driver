@@ -1,7 +1,7 @@
 #include "spi.h"
 #include "config.h"
 
-SPI_InitTypeDef  SPI_InitStructure;
+SPI_InitTypeDef SPI_InitStructure;
 
 void SPIx_Init ( void ) {
     GPIO_InitTypeDef GPIO_InitStructure;

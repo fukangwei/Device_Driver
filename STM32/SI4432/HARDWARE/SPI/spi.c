@@ -70,7 +70,7 @@ void SPIx_Init ( void ) {
     GPIO_Init ( GPIOB, &GPIO_InitStructure );
     GPIO_PinRemapConfig ( GPIO_Remap_SPI1, ENABLE );
     GPIO_SetBits ( GPIOB, GPIO_Pin_3 | GPIO_Pin_4 | GPIO_Pin_5 );
-    GPIO_PinRemapConfig ( GPIO_Remap_SWJ_JTAGDisable , ENABLE );
+    GPIO_PinRemapConfig ( GPIO_Remap_SWJ_JTAGDisable, ENABLE );
     SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
     SPI_InitStructure.SPI_Mode = SPI_Mode_Master;
     SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;
